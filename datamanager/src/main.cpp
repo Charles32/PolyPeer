@@ -26,15 +26,20 @@ int main()
 	Entity* entity2;
 	vector<DeploymentState>* deploys;
 	
+	File* fileTest = new File(sData->getCurrentId(),"D4", "truc.png");
+	fileTest->addEntity(sData->public_getEntity("batiment_D"));
+	sData->addFile(fileTest);
+	
 	unsigned int i, j, k;
 	cout << endl;
 	for (i=0; i < vFile->size(); i++)
 	{
-		cout << "id : " << ((*vFile)[i])->getId() <<endl;
+		cout << "id : " << ((*vFile)[i])->getFileManager()->getIdFile() <<endl;
+		cout << "name : " << ((*vFile)[i])->getName() << endl;
 		cout << "pointeur : " << &((*vFile)[i]) << endl;
-		cout << "path : " << ((*vFile)[i])->getFilePath() <<endl;
-		cout << "size : " << ((*vFile)[i])->getSize() <<endl;
-		cout << "chunkSize : " << ((*vFile)[i])->getChunkSize() <<endl;
+		cout << "path : " << ((*vFile)[i])->getFileManager()->getFileName() <<endl;
+		cout << "size : " << ((*vFile)[i])->getFileManager()->getFileSize() <<endl;
+		cout << "chunkSize : " << ((*vFile)[i])->getFileManager()->getChunkSize() <<endl;
 		vEntity = ((*vFile)[i])->getDeploysOn();
 		for (j=0; j < vEntity->size(); j++)
 		{
@@ -46,7 +51,7 @@ int main()
 			deploys = entity2->getDeploys();
 			for (k=0; k < deploys->size(); k++)
 			{
-				cout << "                   idFile : " << ((((*deploys)[k]).getRefFile())->getId())<< endl;
+				cout << "                   idFile : " << ((((*deploys)[k]).getRefFile())->getFileManager()->getIdFile())<< endl;
 			}
 		}
 	}
@@ -81,6 +86,8 @@ int main()
 			}
 		}
 	}*/
+	
+	cout << "CurrentID : "<< sData->getCurrentId() << endl;
 	
 	delete sData;
 		
