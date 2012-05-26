@@ -24,12 +24,12 @@ Entity* Entity::getParent()
 	return parent;
 }
 
-double getCurrentBroadbandSpeed()
+double Entity::getCurrentBroadbandSpeed()
 {
 	return currentBroadbandSpeed;
 }
 
-void setCurrentBroadbandSpeed(double bbs)
+void Entity::setCurrentBroadbandSpeed(double bbs)
 {
 	if ((bbs <= networkCapacity) && (bbs >= 0))
 		currentBroadbandSpeed = bbs;

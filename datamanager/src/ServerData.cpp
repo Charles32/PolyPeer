@@ -147,7 +147,7 @@ void ServerData::addFileToAll(File* f)
 	xmlTool->writeFileIntoDeployments(f);
 	for(i=0; i < (f->getDeploysOn())->size(); i++)
 	{
-		xmlTool->writeEntityIntoFile((f->getFileManager())->getIdFile(), (*(f->getDeploysOn()))[j]);
+		xmlTool->writeEntityIntoFile((f->getFileManager())->getIdFile(), (*(f->getDeploysOn()))[i]);
 	}
 }
 
